@@ -21,6 +21,7 @@ BuildRequires: cmake(Qt6Qml)
 BuildRequires: cmake(Qt6GuiTools)
 BuildRequires: cmake(Qt6QuickTest)
 BuildRequires: cmake(Qt6DBusTools)
+BuildRequires: cmake(Qt6PrintSupport)
 BuildRequires: doxygen
 BuildRequires: cmake(Qt6ToolsTools)
 BuildRequires: cmake(Qt6)
