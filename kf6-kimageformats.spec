@@ -1,4 +1,4 @@
-%define git 20230811
+%define git 20230818
 
 Name: kf6-kimageformats
 Version: 5.240.0
@@ -46,6 +46,7 @@ Requires: %{name}-pcx = %{EVRD}
 Requires: %{name}-pic = %{EVRD}
 Requires: %{name}-psd = %{EVRD}
 Requires: %{name}-ora = %{EVRD}
+Requires: %{name}-qoi = %{EVRD}
 Requires: %{name}-ras = %{EVRD}
 Requires: %{name}-raw = %{EVRD}
 Requires: %{name}-rgb = %{EVRD}
@@ -66,6 +67,7 @@ Plugins to allow QImage to support extra file formats.
 %{expand:%(sh %{SOURCE10} pic)}
 %{expand:%(sh %{SOURCE10} psd)}
 %{expand:%(sh %{SOURCE10} ora)}
+%{expand:%(sh %{SOURCE10} qoi)}
 %{expand:%(sh %{SOURCE10} ras)}
 %{expand:%(sh %{SOURCE10} raw)}
 %{expand:%(sh %{SOURCE10} rgb)}
