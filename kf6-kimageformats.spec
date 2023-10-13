@@ -1,4 +1,4 @@
-%define git 20231011
+%define git 20231013
 
 Name: kf6-kimageformats
 Version: 5.240.0
