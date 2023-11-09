@@ -1,9 +1,14 @@
-%define git 20231103
+%define stable %([ "$(echo %{version} |cut -d. -f2)" -ge 80 -o "$(echo %{version} |cut -d. -f3)" -ge 80 ] && echo -n un; echo -n stable)
+#define git 20231103
 
 Name: kf6-kimageformats
-Version: 5.240.0
+Version: 5.245.0
 Release: %{?git:0.%{git}.}1
+%if 0%{?git:1}
 Source0: https://invent.kde.org/frameworks/kimageformats/-/archive/master/kimageformats-master.tar.bz2#/kimageformats-%{git}.tar.bz2
+%else
+Source0: http://download.kde.org/%{stable}/frameworks/%{version}/kimageformats-%{version}.tar.xz
+%endif
 Source10: imageformat-package
 Summary: Plugins to allow QImage to support extra file formats.
 URL: https://invent.kde.org/frameworks/kimageformats
