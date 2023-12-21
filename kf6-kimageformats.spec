@@ -10,6 +10,7 @@ Source0: https://invent.kde.org/frameworks/kimageformats/-/archive/master/kimage
 Source0: http://download.kde.org/%{stable}/frameworks/%{version}/kimageformats-%{version}.tar.xz
 %endif
 Source10: imageformat-package
+Patch0: kimageformats-5.247.0-qt-6.7.patch
 Summary: Plugins to allow QImage to support extra file formats.
 URL: https://invent.kde.org/frameworks/kimageformats
 License: CC0-1.0 LGPL-2.0+ LGPL-2.1 LGPL-3.0

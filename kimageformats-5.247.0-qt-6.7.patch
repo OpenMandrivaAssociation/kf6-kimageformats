@@ -1,0 +1,12 @@
+diff -up kimageformats-5.247.0/src/imageformats/xcf.cpp.omv~ kimageformats-5.247.0/src/imageformats/xcf.cpp
+--- kimageformats-5.247.0/src/imageformats/xcf.cpp.omv~	2023-12-21 21:00:48.454466973 +0100
++++ kimageformats-5.247.0/src/imageformats/xcf.cpp	2023-12-21 21:01:34.788612100 +0100
+@@ -960,7 +960,7 @@ bool XCFImageFormat::loadImageProperties
+         case PROP_PARASITES:
+             while (!property.atEnd()) {
+                 char *tag;
+-                quint32 size;
++                qsizetype size;
+ 
+                 property.readBytes(tag, size);
+ 
