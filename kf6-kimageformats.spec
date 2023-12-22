@@ -33,7 +33,7 @@ BuildRequires: cmake(Qt6ToolsTools)
 BuildRequires: cmake(Qt6)
 BuildRequires: cmake(Qt6QuickTest)
 BuildRequires: pkgconfig(jasper)
-BuildRequires: pkgconfig(OpenEXR)
+BuildRequires: pkgconfig(OpenEXR) >= 3.0.0
 BuildRequires: pkgconfig(libavif)
 BuildRequires: pkgconfig(zlib)
 BuildRequires: pkgconfig(libjxl)
