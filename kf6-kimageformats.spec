@@ -19,7 +19,7 @@
 
 Name: kf6-kimageformats
 Version: 6.3.0
-Release: %{?git:0.%{git}.}2
+Release: %{?git:0.%{git}.}2%{?extrarelsuffix}
 %if 0%{?git:1}
 Source0: https://invent.kde.org/frameworks/kimageformats/-/archive/master/kimageformats-master.tar.bz2#/kimageformats-%{git}.tar.bz2
 %else
@@ -64,6 +64,9 @@ Requires: %{name}-avif = %{EVRD}
 Requires: %{name}-eps = %{EVRD}
 Requires: %{name}-exr = %{EVRD}
 Requires: %{name}-hdr = %{EVRD}
+%if %{build_plf}
+Requires: %{name}-heif = %{EVRD}
+%endif
 Requires: %{name}-jxl = %{EVRD}
 Requires: %{name}-kra = %{EVRD}
 Requires: %{name}-pcx = %{EVRD}
@@ -85,6 +88,9 @@ Plugins to allow QImage to support extra file formats.
 %{expand:%(sh %{SOURCE10} eps)}
 %{expand:%(sh %{SOURCE10} exr)}
 %{expand:%(sh %{SOURCE10} hdr)}
+%if %{build_plf}
+%{expand:%(sh %{SOURCE10} heif)}
+%endif
 %{expand:%(sh %{SOURCE10} jxl)}
 %{expand:%(sh %{SOURCE10} kra)}
 %{expand:%(sh %{SOURCE10} pcx)}
@@ -104,7 +110,7 @@ Plugins to allow QImage to support extra file formats.
 	-DBUILD_QCH:BOOL=ON \
 	-DBUILD_WITH_QT6:BOOL=ON \
 	-DKDE_INSTALL_USE_QT_SYS_PATHS:BOOL=ON \
- %if %{build_plf}
+%if %{build_plf}
  	-DKIMAGEFORMATS_HEIF=ON \
 %endif
 	-G Ninja
