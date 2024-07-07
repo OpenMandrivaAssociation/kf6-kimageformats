@@ -1,10 +1,25 @@
+##########################
+# Hardcode PLF build
+%define build_plf	1
+##########################
+%if "%{disttag}" == "mdk"
+%define	build_plf	1
+%endif
+
+%if %{build_plf}
+%define distsuffix plf
+# make EVR of plf build higher than regular to allow update
+%define extrarelsuffix plf
+%define build_heif	1
+%endif
+
 %define major %(echo %{version} |cut -d. -f1-2)
 %define stable %([ "$(echo %{version} |cut -d. -f2)" -ge 80 -o "$(echo %{version} |cut -d. -f3)" -ge 80 ] && echo -n un; echo -n stable)
 #define git 20240217
 
 Name: kf6-kimageformats
 Version: 6.3.0
-Release: %{?git:0.%{git}.}1
+Release: %{?git:0.%{git}.}2
 %if 0%{?git:1}
 Source0: https://invent.kde.org/frameworks/kimageformats/-/archive/master/kimageformats-master.tar.bz2#/kimageformats-%{git}.tar.bz2
 %else
@@ -41,6 +56,9 @@ BuildRequires: pkgconfig(libraw)
 BuildRequires: pkgconfig(libraw)
 BuildRequires: pkgconfig(libavif)
 BuildRequires: cmake(KF6Archive)
+%if %{build_plf}
+BuildRequires: cmake(libheif)
+%endif
 Requires: %{name}-ani = %{EVRD}
 Requires: %{name}-avif = %{EVRD}
 Requires: %{name}-eps = %{EVRD}
@@ -86,6 +104,9 @@ Plugins to allow QImage to support extra file formats.
 	-DBUILD_QCH:BOOL=ON \
 	-DBUILD_WITH_QT6:BOOL=ON \
 	-DKDE_INSTALL_USE_QT_SYS_PATHS:BOOL=ON \
+ %if %{build_plf}
+ 	-DKIMAGEFORMATS_HEIF=ON \
+%endif
 	-G Ninja
 
 %build
