@@ -2,6 +2,13 @@
 %define stable %([ "$(echo %{version} |cut -d. -f2)" -ge 80 -o "$(echo %{version} |cut -d. -f3)" -ge 80 ] && echo -n un; echo -n stable)
 #define git 20240217
 
+#                 Attention! Achtung! Uwaga! Attenzione!                  #
+###########################################################################
+#   When updating kf6-kimageformats remember to also update its twin in	  #
+# 	 restricted repository - kf6-kimageformats-restricted, 		  #
+# 		which has the heif codec enabled.               	  #
+###########################################################################
+
 Name: kf6-kimageformats
 Version: 6.3.0
 Release: %{?git:0.%{git}.}1
