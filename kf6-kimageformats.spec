@@ -47,6 +47,7 @@ BuildRequires: pkgconfig(libjxl)
 BuildRequires: pkgconfig(libraw)
 BuildRequires: pkgconfig(libraw)
 BuildRequires: pkgconfig(libavif)
+BuildRequires: jxrlib-devel
 BuildRequires: cmake(KF6Archive)
 Suggests: %{name}-ani = %{EVRD}
 Suggests: %{name}-avif = %{EVRD}
@@ -54,6 +55,7 @@ Suggests: %{name}-eps = %{EVRD}
 Suggests: %{name}-exr = %{EVRD}
 Suggests: %{name}-hdr = %{EVRD}
 Suggests: %{name}-jxl = %{EVRD}
+Suggests: %{name}-jxr = %{EVRD}
 Suggests: %{name}-kra = %{EVRD}
 Suggests: %{name}-pcx = %{EVRD}
 Suggests: %{name}-pfm = %{EVRD}
@@ -68,6 +70,12 @@ Suggests: %{name}-rgb = %{EVRD}
 Suggests: %{name}-sct = %{EVRD}
 Suggests: %{name}-tga = %{EVRD}
 Suggests: %{name}-xcf = %{EVRD}
+BuildSystem: cmake
+BuildOption: -DKDE_INSTALL_USE_QT_SYS_PATHS:BOOL=ON
+BuildOption: -DKIMAGEFORMATS_JXL:BOOL=ON
+BuildOption: -DKIMAGEFORMATS_JXR:BOOL=ON
+# HEIF has patent issues, and is therefore in restricted
+BuildOption: -DKIMAGEFORMATS_HEIF:BOOL=OFF
 
 %description
 Plugins to allow QImage to support extra file formats.
@@ -78,6 +86,7 @@ Plugins to allow QImage to support extra file formats.
 %{expand:%(sh %{SOURCE10} exr)}
 %{expand:%(sh %{SOURCE10} hdr)}
 %{expand:%(sh %{SOURCE10} jxl)}
+%{expand:%(sh %{SOURCE10} jxr)}
 %{expand:%(sh %{SOURCE10} kra)}
 %{expand:%(sh %{SOURCE10} pcx)}
 %{expand:%(sh %{SOURCE10} pfm)}
@@ -92,19 +101,5 @@ Plugins to allow QImage to support extra file formats.
 %{expand:%(sh %{SOURCE10} sct)}
 %{expand:%(sh %{SOURCE10} tga)}
 %{expand:%(sh %{SOURCE10} xcf)}
-
-%prep
-%autosetup -p1 -n kimageformats-%{?git:master}%{!?git:%{version}}
-%cmake \
-	-DBUILD_QCH:BOOL=ON \
-	-DBUILD_WITH_QT6:BOOL=ON \
-	-DKDE_INSTALL_USE_QT_SYS_PATHS:BOOL=ON \
-	-G Ninja
-
-%build
-%ninja_build -C build
-
-%install
-%ninja_install -C build
 
 %files
