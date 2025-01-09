@@ -10,7 +10,7 @@
 ###########################################################################
 
 Name: kf6-kimageformats
-Version: 6.9.0
+Version: 6.10.0
 Release: %{?git:0.%{git}.}1
 %if 0%{?git:1}
 Source0: https://invent.kde.org/frameworks/kimageformats/-/archive/master/kimageformats-master.tar.bz2#/kimageformats-%{git}.tar.bz2
@@ -51,6 +51,7 @@ BuildRequires: jxrlib-devel
 BuildRequires: cmake(KF6Archive)
 Suggests: %{name}-ani = %{EVRD}
 Suggests: %{name}-avif = %{EVRD}
+Suggests: %{name}-dds = %{EVRD}
 Suggests: %{name}-eps = %{EVRD}
 Suggests: %{name}-exr = %{EVRD}
 Suggests: %{name}-hdr = %{EVRD}
@@ -82,6 +83,7 @@ Plugins to allow QImage to support extra file formats.
 
 %{expand:%(sh %{SOURCE10} ani)}
 %{expand:%(sh %{SOURCE10} avif)}
+%{expand:%(sh %{SOURCE10} dds)}
 %{expand:%(sh %{SOURCE10} eps)}
 %{expand:%(sh %{SOURCE10} exr)}
 %{expand:%(sh %{SOURCE10} hdr)}
