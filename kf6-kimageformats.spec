@@ -10,7 +10,7 @@
 ###########################################################################
 
 Name: kf6-kimageformats
-Version: 6.10.0
+Version: 6.11.0
 Release: %{?git:0.%{git}.}1
 %if 0%{?git:1}
 Source0: https://invent.kde.org/frameworks/kimageformats/-/archive/master/kimageformats-master.tar.bz2#/kimageformats-%{git}.tar.bz2
@@ -87,6 +87,7 @@ Plugins to allow QImage to support extra file formats.
 %{expand:%(sh %{SOURCE10} eps)}
 %{expand:%(sh %{SOURCE10} exr)}
 %{expand:%(sh %{SOURCE10} hdr)}
+%{expand:%(sh %{SOURCE10} jp2)}
 %{expand:%(sh %{SOURCE10} jxl)}
 %{expand:%(sh %{SOURCE10} jxr)}
 %{expand:%(sh %{SOURCE10} kra)}
