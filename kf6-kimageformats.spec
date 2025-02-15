@@ -47,6 +47,7 @@ BuildRequires: pkgconfig(libjxl)
 BuildRequires: pkgconfig(libraw)
 BuildRequires: pkgconfig(libraw)
 BuildRequires: pkgconfig(libavif)
+BuildRequires: pkgconfig(libopenjp2)
 BuildRequires: jxrlib-devel
 BuildRequires: cmake(KF6Archive)
 Suggests: %{name}-ani = %{EVRD}
