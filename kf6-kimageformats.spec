@@ -10,7 +10,7 @@
 ###########################################################################
 
 Name: kf6-kimageformats
-Version: 6.14.0
+Version: 6.15.0
 Release: %{?git:0.%{git}.}1
 %if 0%{?git:1}
 Source0: https://invent.kde.org/frameworks/kimageformats/-/archive/master/kimageformats-master.tar.bz2#/kimageformats-%{git}.tar.bz2
@@ -82,6 +82,13 @@ BuildOption: -DKIMAGEFORMATS_HEIF:BOOL=OFF
 %description
 Plugins to allow QImage to support extra file formats.
 
+%package devel
+Summary:	Development files for %{name}
+Group:		Development/C and C++
+
+%description devel
+Development files for %{name}
+
 %{expand:%(sh %{SOURCE10} ani)}
 %{expand:%(sh %{SOURCE10} avif)}
 %{expand:%(sh %{SOURCE10} dds)}
@@ -107,3 +114,6 @@ Plugins to allow QImage to support extra file formats.
 %{expand:%(sh %{SOURCE10} xcf)}
 
 %files
+
+%files devel
+%{_libdir}/cmake/KF6ImageFormats
