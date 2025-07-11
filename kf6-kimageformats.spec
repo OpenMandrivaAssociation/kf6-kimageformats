@@ -10,7 +10,7 @@
 ###########################################################################
 
 Name: kf6-kimageformats
-Version: 6.15.0
+Version: 6.16.0
 Release: %{?git:0.%{git}.}1
 %if 0%{?git:1}
 Source0: https://invent.kde.org/frameworks/kimageformats/-/archive/master/kimageformats-master.tar.bz2#/kimageformats-%{git}.tar.bz2
@@ -56,6 +56,7 @@ Suggests: %{name}-dds = %{EVRD}
 Suggests: %{name}-eps = %{EVRD}
 Suggests: %{name}-exr = %{EVRD}
 Suggests: %{name}-hdr = %{EVRD}
+Suggests: %{name}-iff = %{EVRD}
 Suggests: %{name}-jxl = %{EVRD}
 Suggests: %{name}-jxr = %{EVRD}
 Suggests: %{name}-kra = %{EVRD}
@@ -95,6 +96,7 @@ Development files for %{name}
 %{expand:%(sh %{SOURCE10} eps)}
 %{expand:%(sh %{SOURCE10} exr)}
 %{expand:%(sh %{SOURCE10} hdr)}
+%{expand:%(sh %{SOURCE10} iff)}
 %{expand:%(sh %{SOURCE10} jp2)}
 %{expand:%(sh %{SOURCE10} jxl)}
 %{expand:%(sh %{SOURCE10} jxr)}
