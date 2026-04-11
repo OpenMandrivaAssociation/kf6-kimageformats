@@ -10,8 +10,8 @@
 ###########################################################################
 
 Name: kf6-kimageformats
-Version: 6.24.0
-Release: %{?git:0.%{git}.}2
+Version: 6.25.0
+Release: %{?git:0.%{git}.}1
 %if 0%{?git:1}
 Source0: https://invent.kde.org/frameworks/kimageformats/-/archive/master/kimageformats-master.tar.bz2#/kimageformats-%{git}.tar.bz2
 %else
@@ -72,6 +72,7 @@ Suggests: %{name}-raw = %{EVRD}
 Suggests: %{name}-rgb = %{EVRD}
 Suggests: %{name}-sct = %{EVRD}
 Suggests: %{name}-tga = %{EVRD}
+Suggests: %{name}-tim = %{EVRD}
 Suggests: %{name}-xcf = %{EVRD}
 BuildSystem: cmake
 BuildOption: -DKDE_INSTALL_USE_QT_SYS_PATHS:BOOL=ON
@@ -113,6 +114,7 @@ Development files for %{name}
 %{expand:%(sh %{SOURCE10} rgb)}
 %{expand:%(sh %{SOURCE10} sct)}
 %{expand:%(sh %{SOURCE10} tga)}
+%{expand:%(sh %{SOURCE10} tim)}
 %{expand:%(sh %{SOURCE10} xcf)}
 
 %files
