@@ -10,7 +10,7 @@
 ###########################################################################
 
 Name: kf6-kimageformats
-Version: 6.25.0
+Version: 6.27.0
 Release: %{?git:0.%{git}.}1
 %if 0%{?git:1}
 Source0: https://invent.kde.org/frameworks/kimageformats/-/archive/master/kimageformats-master.tar.bz2#/kimageformats-%{git}.tar.bz2
@@ -55,6 +55,7 @@ Suggests: %{name}-avif = %{EVRD}
 Suggests: %{name}-dds = %{EVRD}
 Suggests: %{name}-eps = %{EVRD}
 Suggests: %{name}-exr = %{EVRD}
+Suggests: %{name}-ff = %{EVRD}
 Suggests: %{name}-hdr = %{EVRD}
 Suggests: %{name}-iff = %{EVRD}
 Suggests: %{name}-jxl = %{EVRD}
@@ -78,6 +79,8 @@ BuildSystem: cmake
 BuildOption: -DKDE_INSTALL_USE_QT_SYS_PATHS:BOOL=ON
 BuildOption: -DKIMAGEFORMATS_JXL:BOOL=ON
 BuildOption: -DKIMAGEFORMATS_JXR:BOOL=ON
+# We allow this because it's a separate package anyway - people can opt to install it or not
+BuildOption: -DKIMAGEFORMATS_WITH_KNOWN_CRASHES_JXR=ON
 # HEIF has patent issues, and is therefore in restricted
 BuildOption: -DKIMAGEFORMATS_HEIF:BOOL=OFF
 
@@ -96,6 +99,7 @@ Development files for %{name}
 %{expand:%(sh %{SOURCE10} dds)}
 %{expand:%(sh %{SOURCE10} eps)}
 %{expand:%(sh %{SOURCE10} exr)}
+%{expand:%(sh %{SOURCE10} ff)}
 %{expand:%(sh %{SOURCE10} hdr)}
 %{expand:%(sh %{SOURCE10} iff)}
 %{expand:%(sh %{SOURCE10} jp2)}
