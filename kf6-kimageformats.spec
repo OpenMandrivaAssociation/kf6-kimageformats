@@ -10,7 +10,7 @@
 ###########################################################################
 
 Name: kf6-kimageformats
-Version: 6.28.1
+Version: 6.29.0
 Release: %{?git:0.%{git}.}1
 %if 0%{?git:1}
 Source0: https://invent.kde.org/frameworks/kimageformats/-/archive/master/kimageformats-master.tar.bz2#/kimageformats-%{git}.tar.bz2
@@ -111,7 +111,19 @@ Development files for %{name}
 %{expand:%(sh %{SOURCE10} pic)}
 %{expand:%(sh %{SOURCE10} psd)}
 %{expand:%(sh %{SOURCE10} pxr)}
-%{expand:%(sh %{SOURCE10} ora)}
+# ORA was merged into the KRA plugin in 6.29.0; keep a meta package so
+# existing kf6-kimageformats-ora installs still pull in ORA support.
+%package ora
+Summary:	Qt 6.x support for images in the ora format
+Group:		System/Libraries
+Requires:	%{name}-kra = %{EVRD}
+
+%description ora
+Qt 6.x support for images in the ora format.
+This is now provided by the Krita (kra) plugin.
+
+%files ora
+
 %{expand:%(sh %{SOURCE10} qoi)}
 %{expand:%(sh %{SOURCE10} ras)}
 %{expand:%(sh %{SOURCE10} raw)}
